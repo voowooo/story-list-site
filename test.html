@@ -1,79 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мои заметки</title>
-    <style>
-        /* Стили CSS */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-        .note {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            margin-bottom: 10px;
-            padding: 10px;
-        }
-        .note h2 {
-            margin-top: 0;
-        }
-    </style>
+    <meta charset="utf-8" />
+    <title>METANIT.COM</title>
 </head>
 <body>
-    <h1>Мои заметки</h1>
-
-    <div id="notesContainer">
-        <!-- Здесь будут отображаться заметки -->
-    </div>
-
-    <form id="noteForm">
-        <label for="noteTitle">Заголовок:</label><br>
-        <input type="text" id="noteTitle" name="noteTitle"><br>
-        <label for="noteContent">Содержание:</label><br>
-        <textarea id="noteContent" name="noteContent"></textarea><br>
-        <button type="submit">Добавить заметку</button>
-    </form>
-
+    <p>Text 1</p>
+    <p>Text 2</p>
     <script>
-        // JavaScript для добавления заметок
-
-        const notesContainer = document.getElementById('notesContainer');
-        const noteForm = document.getElementById('noteForm');
-
-        noteForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const noteTitleInput = document.getElementById('noteTitle');
-            const noteContentInput = document.getElementById('noteContent');
-
-            const noteTitle = noteTitleInput.value;
-            const noteContent = noteContentInput.value;
-
-            if (noteTitle.trim() === '' || noteContent.trim() === '') {
-                alert('Пожалуйста, заполните заголовок и содержание заметки.');
-                return;
-            }
-
-            const noteDiv = document.createElement('div');
-            noteDiv.classList.add('note');
-
-            const noteTitleHeading = document.createElement('h2');
-            noteTitleHeading.textContent = noteTitle;
-
-            const noteContentPara = document.createElement('p');
-            noteContentPara.textContent = noteContent;
-
-            noteDiv.appendChild(noteTitleHeading);
-            noteDiv.appendChild(noteContentPara);
-
-            notesContainer.appendChild(noteDiv);
-
-            noteTitleInput.value = '';
-            noteContentInput.value = '';
-        });
+    const header = document.createElement("p");        // создаем заголовок <h1>
+    header.textContent = "Page Header"; // определяем текст элемента
+    // получаем первый параграф
+    const firstP = document.body.firstElementChild;
+    // добавляем элемент h1 перед параграфом firstP
+    document.body.insertBefore(header, firstP); 
     </script>
 </body>
 </html>

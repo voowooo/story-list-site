@@ -1,9 +1,76 @@
-P {
-    font-size: 35px;
+body{
+    display: flex;
+    flex-flow: column;
+    background-color: black;
 }
 
-input {
-    width: 50%;
-    height: 50%;
+.name {
     font-size: 35px;
+    font-weight: bold;
+    font-family: 'San Francisco', Helvetica, Arial, san-serif;
+    color: white;
+}
+
+textarea {
+    /* width: 50%;
+    height: 50%; */
+    font-size: 35px;
+    font-family: 'San Francisco', Helvetica, Arial, san-serif;
+    border: 2px solid black;
+    color: white;
+    border-radius: 20px;
+    padding: 7px;
+    background-color: rgb(61, 61, 61);
+}
+
+textarea:focus{
+    border-color: rgb(173, 173, 173);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+    transition: 0.2s;
+}
+
+.mark {
+    font-family: 'San Francisco', Helvetica, Arial, san-serif;
+    border: 5px solid rgb(255, 255, 255);
+    background: rgba(144, 238, 144, 0);
+    color: white;
+    width: fit-content;
+    height: fit-content;
+    font-weight: bold;
+    font-size: 35px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    /* transition: 0.2s; */
+    animation: 0.7s show ease;
+}
+
+@keyframes show {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+button {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.362);
+    transition: 0.2s;
+    border-color: black;
+    border-color: rgba(255, 255, 255, 0.348);
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+button:hover {
+    transform: translate(0px,-3px);
+    box-shadow: 0 0px 20px 0 rgb(255, 255, 255);
+}
+
+.buttons{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
 }
