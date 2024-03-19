@@ -5,11 +5,21 @@ body{
     color: white;
 }
 
+body.dark-theme {
+    color: rgb(0, 0, 0);
+    background: #ffffff;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .name {
     font-size: 35px;
     font-weight: bold;
     font-family: 'San Francisco', Helvetica, Arial, san-serif;
-    color: white;
 }
 
 textarea {
@@ -53,22 +63,26 @@ textarea:focus{
 }
 
 button {
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.362);
+    background-color: rgba(0, 0, 0, 0);
     transition: 0.2s;
-    border-color: black;
-    border-color: rgba(255, 255, 255, 0.348);
-    border-radius: 10px;
-    padding: 10px 15px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 10px;
     font-size: 20px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-weight: bold;
     margin: 10px;
+    height: fit-content;
+}
+
+body.dark-theme button {
+    color: rgb(0, 0, 0);
+    background: #ffffff00;
+    border-color: rgb(0, 0, 0);
 }
 
 button:hover {
-    transform: translate(0px,-3px);
-    box-shadow: 0 0px 20px 0 rgb(255, 255, 255);
+    
 }
 
 .buttons{
