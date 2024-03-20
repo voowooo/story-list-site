@@ -34,6 +34,12 @@ textarea {
     background-color: rgb(61, 61, 61);
 }
 
+body.dark-theme textarea {
+    color: rgb(0, 0, 0);
+    background: #d0d0d0;
+    border-color: rgb(0, 0, 0);
+}
+
 textarea:focus{
     border-color: rgb(173, 173, 173);
     outline: 0;
