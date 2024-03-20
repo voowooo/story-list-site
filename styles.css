@@ -22,7 +22,7 @@ body.dark-theme {
     font-family: 'San Francisco', Helvetica, Arial, san-serif;
 }
 
-textarea {
+.markText {
     width: 50%;
     height: 50%;
     font-size: 35px;
@@ -34,13 +34,13 @@ textarea {
     background-color: rgb(61, 61, 61);
 }
 
-body.dark-theme textarea {
+body.dark-theme .markText {
     color: rgb(0, 0, 0);
     background: #d0d0d0;
     border-color: rgb(0, 0, 0);
 }
 
-textarea:focus{
+.markText:focus{
     border-color: rgb(173, 173, 173);
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
@@ -63,6 +63,11 @@ textarea:focus{
     animation: 0.7s show ease;
 }
 
+body.dark-theme .mark {
+    color: black;
+    border-color: rgb(0, 0, 0);
+}
+
 @keyframes show {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -72,7 +77,7 @@ button {
     background-color: rgba(0, 0, 0, 0);
     transition: 0.2s;
     border-color: rgb(255, 255, 255);
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 10px;
     font-size: 20px;
     color: rgb(255, 255, 255);
@@ -87,8 +92,18 @@ body.dark-theme button {
     border-color: rgb(0, 0, 0);
 }
 
+body.dark-theme button:hover {
+    background-color: rgb(0, 0, 0);
+    border-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+}
+
 button:hover {
-    
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-radius: 20px;
 }
 
 .buttons{
