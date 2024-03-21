@@ -112,3 +112,13 @@ button:hover {
     display: flex;
     justify-content: center;
 }
+
+.wrapper {
+    display: flex;
+    flex-flow: column;
+}
+
+.place {
+    display: flex;
+    flex-flow: column-reverse;
+}

@@ -1,17 +1,15 @@
 function save(){
+    theme = document.getElementById("markTheme").value;
     text = document.getElementById("text").value;
+    br = "br";
     const header = document.createElement("div");        // создаем заголовок <h1>
-    header.textContent = text; // определяем текст элемента
+    header.textContent = theme + ": " + text; // определяем текст элемента
     header.className = "mark";
     header.id = "mark";
+    var place = document.getElementById("place");
+    place.appendChild(header);
     // добавляем элемент h1 перед параграфом firstP
-    document.body.appendChild(header);
-
-    theme = document.getElementById("markTheme").value;
-    const voo = document.createElement("div");
-    voo.textContent = theme;
-    const placev = document.getElementById("text");
-    document.body.appendChild(voo);
+    document.body.appendChild(place);
 }
 
 // Выбираем кнопку
