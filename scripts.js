@@ -1,6 +1,7 @@
 function save(){
     theme = document.getElementById("markTheme").value;
     text = document.getElementById("text").value;
+    v = document.getElementById("v");
     br = "br";
     const header = document.createElement("div");        // создаем заголовок <h1>
     header.textContent = theme + ": " + text; // определяем текст элемента
@@ -10,6 +11,7 @@ function save(){
     place.appendChild(header);
     // добавляем элемент h1 перед параграфом firstP
     document.body.appendChild(place);
+    v.style = "display:;"
 }
 
 // Выбираем кнопку

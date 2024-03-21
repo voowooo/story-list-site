@@ -3,6 +3,9 @@ body{
     flex-flow: column;
     background-color: black;
     color: white;
+    font-weight: bold;
+    font-family: 'San Francisco', Helvetica, Arial, san-serif;
+    transition: 0.5s;
 }
 
 body.dark-theme {
@@ -36,7 +39,7 @@ body.dark-theme {
 
 body.dark-theme .markText {
     color: rgb(0, 0, 0);
-    background: #d0d0d0;
+    background: transparent;
     border-color: rgb(0, 0, 0);
 }
 
@@ -45,6 +48,11 @@ body.dark-theme .markText {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
     transition: 0.2s;
+}
+
+body.dark-theme .markText:focus{
+    border-color: rgb(173, 173, 173);
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
 }
 
 .mark {
@@ -121,4 +129,28 @@ button:hover {
 .place {
     display: flex;
     flex-flow: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ad {
+    color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    left: 70%;
+    top: 30%;
+    font-size: 35px;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+body.dark-theme .ad{
+    color: rgba(0, 0, 0, 0.5);
+    border: 5px solid rgba(0, 0, 0, 0.5);
 }
