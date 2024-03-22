@@ -1,17 +1,25 @@
 function save(){
     theme = document.getElementById("markTheme").value;
     text = document.getElementById("text").value;
-    v = document.getElementById("v");
-    br = "br";
-    const header = document.createElement("div");        // создаем заголовок <h1>
-    header.textContent = theme + ": " + text; // определяем текст элемента
-    header.className = "mark";
-    header.id = "mark";
-    var place = document.getElementById("place");
-    place.appendChild(header);
-    // добавляем элемент h1 перед параграфом firstP
-    document.body.appendChild(place);
-    v.style = "display:;"
+    if (theme != "" & text != ""){
+      v = document.getElementById("v");
+      br = "br";
+      const header = document.createElement("div");        // создаем заголовок <h1>
+      header.textContent = theme + ": " + text; // определяем текст элемента
+      header.className = "mark";
+      header.id = "mark";
+      var place = document.getElementById("place");
+      place.appendChild(header);
+      // добавляем элемент h1 перед параграфом firstP
+      document.body.appendChild(place);
+      v.style = "display:;"
+    } else if (theme == "" & text != ""){
+      alert("theme of the mark is empty")
+    } else if (theme != "" & text == ""){
+      alert("text of the mark is empty")
+    } else {
+      alert("fields are empty")
+    }
 }
 
 // Выбираем кнопку
