@@ -155,6 +155,23 @@ body.dark-theme .ad{
     border: 5px solid rgba(0, 0, 0, 0.5);
 }
 
+.alert {
+    position: absolute;
+    align-self: center;
+    top: 30px;
+    background-color: rgba(0, 0, 0, 0.237);
+    border: 5px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 20px;
+    opacity: 0;
+}
+
+body.dark-theme .alert{
+    background-color: rgba(255, 255, 255, 0.692);
+    border: 5px solid rgb(0, 0, 0);
+}
+
 @media(max-width: 488px) {
     .ad{
         display: none;

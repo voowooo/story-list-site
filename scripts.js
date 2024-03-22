@@ -1,6 +1,7 @@
 function save(){
     theme = document.getElementById("markTheme").value;
     text = document.getElementById("text").value;
+    mess = document.getElementsByClassName("alert")
     if (theme != "" & text != ""){
       v = document.getElementById("v");
       br = "br";
@@ -13,6 +14,8 @@ function save(){
       // добавляем элемент h1 перед параграфом firstP
       document.body.appendChild(place);
       v.style = "display:;"
+      document.getElementById("markTheme").value = "";
+      document.getElementById("text").value = "";
     } else if (theme == "" & text != ""){
       alert("theme of the mark is empty")
     } else if (theme != "" & text == ""){
