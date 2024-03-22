@@ -12,7 +12,8 @@
         <p>something went wrong, sorry(</p>
     </div>
     <div class="header">
-        <p class="name" id="vop">Mark For Walk</p>
+        <p class="name" id="vop" ondblclick="devMode()">Mark For Walk</p>
+        <button id = "clearButton" onclick="voowoo();" style="display: none;">clear(for dev)</button>
         <button id="modeT">theme</button>
     </div>
     <textarea class="markText" style="height: 50px;" id="markTheme" cols="30" rows="1" placeholder="theme"></textarea>
@@ -27,9 +28,9 @@
         <p>я вообще хз</p>
     </div>
     <div class="center">
-        <p class="name" style="display: none;" id="v">notes:</p>
+        <p class="name" id="v">notes:</p>
     </div>
-        <div id="place" class="place">
+    <div id="place" class="place">
     </div>
     <script src="scripts.js"></script>
 </body>

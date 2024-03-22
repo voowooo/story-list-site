@@ -8,12 +8,17 @@
     <p>Text 1</p>
     <p>Text 2</p>
     <script>
-    const header = document.createElement("p");        // создаем заголовок <h1>
-    header.textContent = "Page Header"; // определяем текст элемента
-    // получаем первый параграф
-    const firstP = document.body.firstElementChild;
-    // добавляем элемент h1 перед параграфом firstP
-    document.body.insertBefore(header, firstP); 
+        const header = document.createElement("p");        // создаем заголовок <h1>
+        header.textContent = "Page Header"; // определяем текст элемента
+        // получаем первый параграф
+        const firstP = document.body.firstElementChild;
+        // добавляем элемент h1 перед параграфом firstP
+        document.body.insertBefore(header, firstP); 
+        import array from './arrays.json'
+
+        const print = (data) => console.log(data)
+
+        array.map(el => print(el))
     </script>
 </body>
 </html>

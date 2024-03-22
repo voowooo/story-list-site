@@ -165,6 +165,7 @@ body.dark-theme .ad{
     padding: 20px;
     font-size: 20px;
     opacity: 0;
+    display: none;
 }
 
 body.dark-theme .alert{
