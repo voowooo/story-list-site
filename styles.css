@@ -245,7 +245,7 @@ body.dark-theme .settings {
     background-color: rgba(255, 255, 255, 0.745);
 }
 
-select {
+select { 
     width: 90px;
     height: 30px;
     border-radius: 10px;
