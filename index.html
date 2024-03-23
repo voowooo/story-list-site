@@ -14,16 +14,21 @@
     <div class="header">
         <p class="name" id="vop" ondblclick="devMode()">Mark For Walk</p>
         <button id = "clearButton" onclick="voowoo();" style="display: none;">clear(for dev)</button>
-        <button onclick="settings()">settings</button>
-        <div class="settings" id="settings">
-            <select id="select">
-                <option value="en">EN</option>
-                <option value="ru">RU</option>
-            </select>
-            <label class="switch">
-                <input type="checkbox" id="togg">
-                <span class="move"></span>
-            </label>
+        <div style="position: relative; z-index: 0;">
+            <button onclick="settings()">settings</button>
+            <div class="settings" id="settings">
+                <!-- <button onclick="settings()" style="width: fit-content; align-self: flex-end; margin: 0px;">settings</button> -->
+                <p style="margin-bottom: 5px;">Theme</p>
+                <label class="switch">
+                    <input type="checkbox" id="togg">
+                    <span class="move"></span>
+                </label>
+                <p style="margin-bottom: 5px;">Language</p>
+                <select id="select">
+                    <option value="en">English</option>
+                    <option value="ru">Russian</option>
+                </select>
+            </div>
         </div>
     </div>
     <textarea class="markText" style="height: 50px;" id="markTheme" cols="30" rows="1" placeholder="theme"></textarea>
