@@ -127,3 +127,15 @@ function settings() {
     toggleSettings = 0;
   }
 }
+
+const toggleSwitch = document.getElementById('togg');
+const savedToggleState = localStorage.getItem('toggleState');
+
+    if (savedToggleState) {
+      toggleSwitch.checked = JSON.parse(savedToggleState);
+    }
+
+    // Слушаем изменения состояния переключателя и сохраняем его значение в localStorage
+    toggleSwitch.addEventListener('change', function() {
+      localStorage.setItem('toggleState', toggleSwitch.checked);
+    }); 
