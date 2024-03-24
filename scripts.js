@@ -111,6 +111,7 @@ function changeLang(){
   document.getElementById('save').innerHTML = langArr['save'][hash];
   document.getElementById('adText').innerHTML = langArr['adText'][hash];
   document.getElementById('v').innerHTML = langArr['v'][hash];
+  document.getElementById('settingsButt').innerHTML = langArr['settingsButt'][hash];
 }
 
 changeLang();

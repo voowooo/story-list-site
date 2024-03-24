@@ -27,4 +27,8 @@ const langArr = {
         "ru": "заметки:",
         "en": "notes:",
     },
+    "settingsButt" : {
+        "ru": "настройки",
+        "en": "settings",
+    },
 }
