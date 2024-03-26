@@ -31,4 +31,12 @@ const langArr = {
         "ru": "настройки",
         "en": "settings",
     },
+    "STTheme" : {
+        "ru": "тема",
+        "en": "theme",
+    },
+    "STLanguage" : {
+        "ru": "язык",
+        "en": "language",
+    },
 }

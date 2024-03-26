@@ -112,6 +112,8 @@ function changeLang(){
   document.getElementById('adText').innerHTML = langArr['adText'][hash];
   document.getElementById('v').innerHTML = langArr['v'][hash];
   document.getElementById('settingsButt').innerHTML = langArr['settingsButt'][hash];
+  document.getElementById('STTheme').innerHTML = langArr['STTheme'][hash];
+  document.getElementById('STLanguage').innerHTML = langArr['STLanguage'][hash];
 }
 
 changeLang();
@@ -121,9 +123,11 @@ var toggleSettings = 0;
 function settings() {
   const settings = document.getElementById("settings");
   if (toggleSettings == 0){
+    settings.style.animation = "show 0.3s";
     settings.style.display = "flex";
     toggleSettings = 1;
   } else if (toggleSettings == 1){
+    // settings.style.animation = "showOut 0.7s";
     settings.style.display = "none";
     toggleSettings = 0;
   }
