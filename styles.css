@@ -179,6 +179,7 @@ body.dark-theme .alert{
     border: 5px solid rgb(0, 0, 0);
 }
 
+/* место где двигается кружок */
 .switch{
     display: inline-block;
     position: relative;
@@ -187,12 +188,14 @@ body.dark-theme .alert{
     margin-bottom: 5px;
 }
 
+/* чекбокс для работы (скрыт) */
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
+/* кружок */
 .move {
     position: absolute;
     top: 0;
@@ -206,6 +209,7 @@ body.dark-theme .alert{
     cursor: pointer;
 }
 
+/* еще кружок */
 .move::before {
     position: absolute;
     content: '';
@@ -222,10 +226,12 @@ body.dark-theme .alert{
 
 }
 
+/* кружок до */
 input:checked + .move {
     border: 3px solid rgb(0, 0, 0);
 }
 
+/* кружок после */
 input:checked + .move::before{
     background: rgb(255, 255, 103);
     transform: translateX(2.1rem);
