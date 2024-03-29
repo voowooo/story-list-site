@@ -1,0 +1,37 @@
+@media(max-width: 488px) {
+    .ad{
+        display: none;
+    }
+    
+    .markText {
+        align-self: center;
+        width: 90%;
+    }
+
+    .buttons {
+        align-self: center;
+    }
+
+    button#save {
+        width: 90%;
+    }
+}
+
+@media(max-width: 768px) {
+    .ad{
+        display: none;
+    }
+    
+    .markText {
+        align-self: center;
+        width: 90%;
+    }
+
+    .buttons {
+        align-self: center;
+    }
+
+    button#save {
+        width: 90%;
+    }
+}

@@ -1,0 +1,54 @@
+body.dark-theme .settings {
+    border-color: black;
+    background-color: rgba(255, 255, 255, 0.745);
+}
+
+body.dark-theme {
+    color: rgb(0, 0, 0);
+    background: #ffffff;
+}
+
+body.dark-theme .markText {
+    color: rgb(0, 0, 0);
+    background: transparent;
+    border-color: rgb(0, 0, 0);
+}
+
+body.dark-theme .markText:focus{
+    border-color: rgb(173, 173, 173);
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+body.dark-theme .mark {
+    color: black;
+    border-color: rgb(0, 0, 0);
+}
+
+body.dark-theme button {
+    color: rgb(0, 0, 0);
+    background: #ffffff00;
+    border-color: rgb(0, 0, 0);
+}
+
+body.dark-theme button:hover {
+    background-color: rgb(0, 0, 0);
+    border-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+}
+
+body.dark-theme .ad{
+    color: rgba(0, 0, 0, 0.5);
+    border: 5px solid rgba(0, 0, 0, 0.5);
+}
+
+body.dark-theme .alert{
+    background-color: rgba(255, 255, 255, 0.692);
+    border: 5px solid rgb(0, 0, 0);
+}
+
+body.dark-theme select {
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
+    border-color: black;
+}

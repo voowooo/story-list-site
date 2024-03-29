@@ -8,11 +8,6 @@ body{
     transition: 0.5s;
 }
 
-body.dark-theme {
-    color: rgb(0, 0, 0);
-    background: #ffffff;
-}
-
 .header{
     display: flex;
     align-items: center;
@@ -38,22 +33,11 @@ body.dark-theme {
     background-color: rgb(61, 61, 61);
 }
 
-body.dark-theme .markText {
-    color: rgb(0, 0, 0);
-    background: transparent;
-    border-color: rgb(0, 0, 0);
-}
-
 .markText:focus{
     border-color: rgb(173, 173, 173);
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
     transition: 0.2s;
-}
-
-body.dark-theme .markText:focus{
-    border-color: rgb(173, 173, 173);
-    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
 }
 
 .mark {
@@ -70,11 +54,6 @@ body.dark-theme .markText:focus{
     border-radius: 10px;
     /* transition: 0.2s; */
     animation: 0.7s show ease;
-}
-
-body.dark-theme .mark {
-    color: black;
-    border-color: rgb(0, 0, 0);
 }
 
 @keyframes show {
@@ -98,19 +77,6 @@ button {
     font-weight: bold;
     margin: 10px;
     height: fit-content;
-}
-
-body.dark-theme button {
-    color: rgb(0, 0, 0);
-    background: #ffffff00;
-    border-color: rgb(0, 0, 0);
-}
-
-body.dark-theme button:hover {
-    background-color: rgb(0, 0, 0);
-    border-color: rgb(255, 255, 255);
-    color: rgb(255, 255, 255);
-    border-radius: 20px;
 }
 
 button:hover {
@@ -156,11 +122,6 @@ button:hover {
     padding: 20px;
 }
 
-body.dark-theme .ad{
-    color: rgba(0, 0, 0, 0.5);
-    border: 5px solid rgba(0, 0, 0, 0.5);
-}
-
 .alert {
     position: absolute;
     align-self: center;
@@ -172,11 +133,6 @@ body.dark-theme .ad{
     font-size: 20px;
     opacity: 0;
     display: none;
-}
-
-body.dark-theme .alert{
-    background-color: rgba(255, 255, 255, 0.692);
-    border: 5px solid rgb(0, 0, 0);
 }
 
 /* место где двигается кружок */
@@ -254,11 +210,6 @@ input:checked + .move::before{
     /* animation: showOut 0.7s; */
 }
 
-body.dark-theme .settings {
-    border-color: black;
-    background-color: rgba(255, 255, 255, 0.745);
-}
-
 select { 
     width: 110px;
     height: 40px;
@@ -271,46 +222,5 @@ select {
     transition: 0.2s;
 }
 
-body.dark-theme select {
-    background-color: rgba(0, 0, 0, 0);
-    color: black;
-    border-color: black;
-}
 
-@media(max-width: 488px) {
-    .ad{
-        display: none;
-    }
-    
-    .markText {
-        align-self: center;
-        width: 90%;
-    }
 
-    .buttons {
-        align-self: center;
-    }
-
-    button#save {
-        width: 90%;
-    }
-}
-
-@media(max-width: 768px) {
-    .ad{
-        display: none;
-    }
-    
-    .markText {
-        align-self: center;
-        width: 90%;
-    }
-
-    .buttons {
-        align-self: center;
-    }
-
-    button#save {
-        width: 90%;
-    }
-}

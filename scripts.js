@@ -143,4 +143,14 @@ const savedToggleState = localStorage.getItem('toggleState');
     // Слушаем изменения состояния переключателя и сохраняем его значение в localStorage
     toggleSwitch.addEventListener('change', function() {
       localStorage.setItem('toggleState', toggleSwitch.checked);
-    }); 
+}); 
+
+let language = window.navigator.language;
+let languageFistTwo = language.substr(0,2); // To only keep the first 2 characters.
+console.log(language);
+console.log(languageFistTwo);
+if (languageFistTwo == 'ru') {
+  location.href = window.location.pathname + '#ru';
+} else {
+  location.href = window.location.pathname + '#en';
+};
