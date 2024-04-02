@@ -109,7 +109,6 @@ function changeLang(){
   document.getElementById('markTheme').placeholder = langArr['markTheme'][hash];
   document.getElementById('text').placeholder = langArr['text'][hash];
   document.getElementById('save').innerHTML = langArr['save'][hash];
-  document.getElementById('adText').innerHTML = langArr['adText'][hash];
   document.getElementById('v').innerHTML = langArr['v'][hash];
   document.getElementById('settingsButt').innerHTML = langArr['settingsButt'][hash];
   document.getElementById('STTheme').innerHTML = langArr['STTheme'][hash];
