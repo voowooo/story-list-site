@@ -52,3 +52,7 @@ body.dark-theme select {
     color: black;
     border-color: black;
 }
+
+body.dark-theme .p {
+    color: rgb(71, 71, 71);
+}

@@ -54,6 +54,7 @@ body{
     border-radius: 10px;
     /* transition: 0.2s; */
     animation: 0.7s show ease;
+    align-self: center;
 }
 
 @keyframes show {
@@ -102,7 +103,14 @@ button:hover {
     display: flex;
     flex-flow: column-reverse;
     justify-content: center;
+    align-self: center;
     align-items: center;
+    /* border: 3px solid white; */
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    margin: 5px;
 }
 
 .center {
@@ -222,5 +230,17 @@ select {
     transition: 0.2s;
 }
 
+p {
+    /* font-size: 25px; */
+    /* color: red; */
+    margin: 0px;
+}
 
+.p {
+    color: rgb(206, 206, 206);
+}
 
+h3 {
+    margin: 0px;
+    margin-bottom: 5px;
+}

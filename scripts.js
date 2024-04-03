@@ -1,45 +1,65 @@
+
+
+var notes = []
+
 function save(){
-    theme = document.getElementById("markTheme").value;
-    text = document.getElementById("text").value;
-    mess = document.getElementsByClassName("alert")
-    if (theme != "" & text != ""){
-      br = "br";
-      const header = document.createElement("div");        // создаем заголовок <h1>
-      header.textContent = theme + ": " + text; // определяем текст элемента
-      header.className = "mark";
-      header.id = "mark";
-      var place = document.getElementById("place");
-      place.appendChild(header);
-      // добавляем элемент h1 перед параграфом firstP
-      document.body.appendChild(place);
-      document.getElementById("markTheme").value = "";
-      document.getElementById("text").value = "";
-      saveList();
-      console.log(localStorage);
-    } else if (theme == "" & text != ""){
-      alert("theme of the mark is empty")
-    } else if (theme != "" & text == ""){
-      alert("text of the mark is empty")
-    } else {
-      alert("fields are empty")
-    }
+  var theme = document.getElementById("markTheme").value;
+  var text = document.getElementById("text").value;
+  var id = notes.length + 1;
+  notes.push ({theme, text, id})
+  console.log(notes);
+  saveList();
+  addToList();
 }
 
-function saveList(){
-  localStorage.storedList = document.getElementById("place").innerHTML;
+function saveList() {
+  localStorage.setItem('notes', JSON.stringify(notes));
+}
+
+function addToList(){
+  var theme = document.getElementById("markTheme").value;
+  var text = document.getElementById("text").value;
+  let div = document.createElement('div');
+  div.className = "mark"
+
+  var theme = "<h3>" + theme + ":</h3>";
+  var text = "<p class = 'p'>" + text + "</p>";
+
+  var text = theme + text;
+
+  div.innerHTML = text;
+
+  var place = document.getElementById("place");
+
+  place.append(div);
 }
 
 function loadList(){
-  document.getElementById("place").innerHTML = localStorage.storedList;
-}
+  // document.getElementById("place").innerHTML = localStorage.storedList;
+  var complete = 0;
+  var length = notes.length;
+   
+  while(complete < length) {
+    let div = document.createElement('div');
+    div.className = "mark"
 
-window.addEventListener('load', () => {
-  if(localStorage.length == 0){
-    console.log("storage is empty");
-  } else{
-    loadList();
+    const textARR = notes[complete];
+
+    var theme = "<h3>" + textARR.theme + ":</h3>";
+    var text = "<p class = 'p'>" + textARR.text + "</p>";
+  
+    var text = theme + text;
+
+    div.innerHTML = text;
+
+    var place = document.getElementById("place");
+
+    place.append(div);
+
+    complete = complete + 1;
+    console.log(complete);
   }
-});
+}
 
 function voowoo(){
   console.log("cleared");
@@ -153,3 +173,14 @@ if (languageFistTwo == 'ru') {
 } else {
   location.href = window.location.pathname + '#en';
 };
+
+window.addEventListener('load', () => {
+  loadList();
+  console.log(localStorage);
+  if(localStorage.getItem('notes')) {
+    notes = JSON.parse(localStorage.getItem('notes'));
+    loadList();
+  } else {
+    console.log("Storage is empty");
+  }
+});
