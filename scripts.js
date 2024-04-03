@@ -9,38 +9,25 @@ function save(){
   notes.push ({theme, text, id})
   console.log(notes);
   saveList();
-  addToList();
+  loadList();
 }
 
 function saveList() {
   localStorage.setItem('notes', JSON.stringify(notes));
 }
 
-function addToList(){
-  var theme = document.getElementById("markTheme").value;
-  var text = document.getElementById("text").value;
-  let div = document.createElement('div');
-  div.className = "mark"
-
-  var theme = "<h3>" + theme + ":</h3>";
-  var text = "<p class = 'p'>" + text + "</p>";
-
-  var text = theme + text;
-
-  div.innerHTML = text;
-
-  var place = document.getElementById("place");
-
-  place.append(div);
-}
-
 function loadList(){
-  // document.getElementById("place").innerHTML = localStorage.storedList;
+  var place = document.getElementById("place");
+  place.innerHTML = "";
   var complete = 0;
   var length = notes.length;
    
   while(complete < length) {
     let div = document.createElement('div');
+    let del = document.createElement("button");
+    del.textContent = 'delete ' + complete;
+    del.id = complete + "del";
+    del.className = "del";
     div.className = "mark"
 
     const textARR = notes[complete];
@@ -55,11 +42,18 @@ function loadList(){
     var place = document.getElementById("place");
 
     place.append(div);
+    place.append(del);
 
     complete = complete + 1;
     console.log(complete);
   }
 }
+
+const btnDel = document.getElementsByClassName("del");
+btnDel.addEventListener("click", function() {
+  const note = btnDel.id;
+  delete notes[note];
+})
 
 function voowoo(){
   console.log("cleared");
