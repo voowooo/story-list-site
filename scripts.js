@@ -47,13 +47,19 @@ function loadList(){
     complete = complete + 1;
     console.log(complete);
   }
+  const btnDel = document.querySelectorAll(".del");
+  btnDel.forEach(btn => {
+    btn.addEventListener("click", function () {
+      delNote(this.id);
+    });
+  });
 }
 
-const btnDel = document.getElementsByClassName("del");
-btnDel.addEventListener("click", function() {
-  const note = btnDel.id;
-  delete notes[note];
-})
+function delNote(btnId){
+  console.log(btnId);
+  // var btnId = btnDel.id - "del";
+  // console.log("button id= " + btnId);
+}
 
 function voowoo(){
   console.log("cleared");
