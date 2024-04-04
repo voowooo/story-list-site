@@ -1,12 +1,13 @@
 
 
-var notes = []
+var notes = [];
+var buttons = [];
 
-function save(){
+function save() {
   var theme = document.getElementById("markTheme").value;
   var text = document.getElementById("text").value;
   var id = notes.length + 1;
-  notes.push ({theme, text, id})
+  notes.push({ theme, text, id });
   console.log(notes);
   saveList();
   loadList();
@@ -14,51 +15,85 @@ function save(){
 
 function saveList() {
   localStorage.setItem('notes', JSON.stringify(notes));
+  localStorage.setItem('buttons', JSON.stringify(buttons)); // Сохраняем кнопки в localStorage
 }
 
-function loadList(){
+function loadList() {
   var place = document.getElementById("place");
   place.innerHTML = "";
   var complete = 0;
   var length = notes.length;
-   
-  while(complete < length) {
+
+  while (complete < length) {
     let div = document.createElement('div');
-    let del = document.createElement("button");
-    del.textContent = 'delete ' + complete;
-    del.id = complete + "del";
-    del.className = "del";
-    div.className = "mark"
+    div.className = "mark";
+    let divMain = document.createElement('div');
+    divMain.className = "divMain";
+
 
     const textARR = notes[complete];
 
     var theme = "<h3>" + textARR.theme + ":</h3>";
-    var text = "<p class = 'p'>" + textARR.text + "</p>";
-  
+    var text = "<p class='p'>" + textARR.text + "</p>";
+
     var text = theme + text;
 
     div.innerHTML = text;
+    divMain.innerHtml = div;
 
-    var place = document.getElementById("place");
+    // Создаем кнопку удаления
+    let del = document.createElement("button");
+    del.textContent = 'delete';
+    del.id = complete + "del";
+    del.className = "del";
 
-    place.append(div);
-    place.append(del);
+    // Добавляем обработчик события для кнопки удаления
+    del.addEventListener("click", function () {
+      delNote(this.id);
+    });
+
+    // Добавляем div на страницу
+    place.appendChild(divMain);
+    divMain.appendChild(div);
+    divMain.appendChild(del);
 
     complete = complete + 1;
     console.log(complete);
   }
-  const btnDel = document.querySelectorAll(".del");
-  btnDel.forEach(btn => {
-    btn.addEventListener("click", function () {
-      delNote(this.id);
+
+  // Загружаем сохраненные кнопки из localStorage
+  if (localStorage.getItem('buttons')) {
+    buttons = JSON.parse(localStorage.getItem('buttons'));
+    // Добавляем кнопки на страницу
+    buttons.forEach(btnId => {
+      const btn = document.getElementById(btnId);
+      if (btn) {
+        place.appendChild(btn);
+      }
     });
-  });
+  }
 }
 
-function delNote(btnId){
+
+function delNote(btnId) {
   console.log(btnId);
-  // var btnId = btnDel.id - "del";
-  // console.log("button id= " + btnId);
+  btnId = btnId.replace(new RegExp("del", 'g'), '').trim();;
+  console.log("button id= " + btnId);
+
+  // Удаляем кнопку с соответствующим id из массива buttons
+  const index = buttons.indexOf(btnId);
+  if (index !== -1) {
+    buttons.splice(index, 1);
+  }
+
+  // Удаляем заметку из массива notes
+  const noteIndex = parseInt(btnId);
+  if (!isNaN(noteIndex)) {
+    notes.splice(noteIndex, 1);
+  }
+
+  saveList();
+  loadList();
 }
 
 function voowoo(){

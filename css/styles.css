@@ -41,8 +41,8 @@ body{
 }
 
 .mark {
+    /* display: flex; */
     font-family: 'San Francisco', Helvetica, Arial, san-serif;
-    border: 5px solid rgb(255, 255, 255);
     background: rgba(144, 238, 144, 0);
     color: white;
     width: fit-content;
@@ -51,7 +51,6 @@ body{
     font-size: 35px;
     margin: 10px;
     padding: 10px;
-    border-radius: 10px;
     /* transition: 0.2s; */
     animation: 0.7s show ease;
     align-self: center;
@@ -243,4 +242,15 @@ p {
 h3 {
     margin: 0px;
     margin-bottom: 5px;
+}
+
+.del {
+    margin-left: 100px;
+}
+
+.divMain {
+    display: flex;
+    border: 5px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    margin: 10px;
 }
