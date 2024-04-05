@@ -271,6 +271,7 @@ h3 {
     justify-items: center;
     background-color: rgba(0, 0, 0, 0.745);
     animation: show 0.7s;
+    z-index: 2;
 }
 
 .delConf button {
