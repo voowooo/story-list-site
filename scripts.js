@@ -1,9 +1,10 @@
 
 var tag = "0";
+var tag = "0";
 var notes = [];
 var buttons = [];
 var confirm = document.getElementById("delConf");
-var confText = document.getElementById("confText");
+var confTheme = document.getElementById("confTheme");
 
 function save() {
   var theme = document.getElementById("markTheme").value;
@@ -56,7 +57,9 @@ function loadList() {
     // Добавляем обработчик события для кнопки удаления
     del.addEventListener("click", function () {
       tag = this.id;
-      // confText.innerHTML = ""
+      tagTHEME = tag.replace(new RegExp("del", 'g'), '').trim();;
+      console.log(tag);
+      confTheme.innerHTML = notes[tagTHEME].theme;
       confirm.style.display = "flex";
     });
 

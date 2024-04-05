@@ -272,10 +272,16 @@ h3 {
     background-color: rgba(0, 0, 0, 0.745);
     animation: show 0.7s;
     z-index: 2;
+    font-size: larger;
 }
 
 .delConf button {
-    font-size: medium;
+    font-size: large;
     padding: 5px;
     margin-bottom: 0%;
 }   
+
+button#deleteConf:hover {
+    background-color: rgb(255, 104, 104);
+    color: rgb(0, 0, 0);
+}
