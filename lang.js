@@ -35,4 +35,16 @@ const langArr = {
         "ru": "язык",
         "en": "language",
     },
+    "confText" : {
+        "ru": "вы уверенны что хотите удалить THEME",
+        "en": "are you sure to delete THEME",
+    },
+    "deleteConf" : {
+        "ru": "удалить",
+        "en": "delete",
+    },
+    "noConf" : {
+        "ru": "нет, назад",
+        "en": "no, back",
+    },
 }

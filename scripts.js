@@ -1,7 +1,9 @@
 
-
+var tag = "0";
 var notes = [];
 var buttons = [];
+var confirm = document.getElementById("delConf");
+var confText = document.getElementById("confText");
 
 function save() {
   var theme = document.getElementById("markTheme").value;
@@ -43,13 +45,19 @@ function loadList() {
 
     // Создаем кнопку удаления
     let del = document.createElement("button");
-    del.textContent = 'delete';
+    
+    del.style.width = "30px";
+    del.style.height = "30px";
+    del.style.padding = "0px";
+    del.textContent = "×";
     del.id = complete + "del";
     del.className = "del";
 
     // Добавляем обработчик события для кнопки удаления
     del.addEventListener("click", function () {
-      delNote(this.id);
+      tag = this.id;
+      // confText.innerHTML = ""
+      confirm.style.display = "flex";
     });
 
     // Добавляем div на страницу
@@ -75,19 +83,20 @@ function loadList() {
 }
 
 
-function delNote(btnId) {
-  console.log(btnId);
-  btnId = btnId.replace(new RegExp("del", 'g'), '').trim();;
-  console.log("button id= " + btnId);
+function delNote() {
+  confirm.style.display = "none";
+  console.log(tag);
+  tag = tag.replace(new RegExp("del", 'g'), '').trim();;
+  console.log("button id= " + tag);
 
   // Удаляем кнопку с соответствующим id из массива buttons
-  const index = buttons.indexOf(btnId);
+  const index = buttons.indexOf(tag);
   if (index !== -1) {
     buttons.splice(index, 1);
   }
 
   // Удаляем заметку из массива notes
-  const noteIndex = parseInt(btnId);
+  const noteIndex = parseInt(tag);
   if (!isNaN(noteIndex)) {
     notes.splice(noteIndex, 1);
   }
@@ -168,6 +177,9 @@ function changeLang(){
   document.getElementById('settingsButt').innerHTML = langArr['settingsButt'][hash];
   document.getElementById('STTheme').innerHTML = langArr['STTheme'][hash];
   document.getElementById('STLanguage').innerHTML = langArr['STLanguage'][hash];
+  document.getElementById('confText').innerHTML = langArr['confText'][hash];
+  document.getElementById('deleteConf').innerHTML = langArr['deleteConf'][hash];
+  document.getElementById('noConf').innerHTML = langArr['noConf'][hash];
 }
 
 changeLang();
@@ -219,3 +231,7 @@ window.addEventListener('load', () => {
     console.log("Storage is empty");
   }
 });
+
+function hideConfirm() {
+  confirm.style.display = "none";
+}

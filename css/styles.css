@@ -254,3 +254,27 @@ h3 {
     border-radius: 10px;
     margin: 10px;
 }
+
+.delConf {
+    top: 10%;
+    align-self: center;
+    /* position: absolute; */
+    position: sticky;
+    display: none;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 10px;
+    height: fit-content;
+    width: fit-content;
+    flex-flow: column;
+    align-items: center;
+    justify-items: center;
+    background-color: rgba(0, 0, 0, 0.745);
+    animation: show 0.7s;
+}
+
+.delConf button {
+    font-size: medium;
+    padding: 5px;
+    margin-bottom: 0%;
+}   
