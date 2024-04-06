@@ -5,6 +5,33 @@ var notes = [];
 var buttons = [];
 var confirm = document.getElementById("delConf");
 var confTheme = document.getElementById("confTheme");
+var initTheme = "none";
+var initText = "none";
+var IsTheme = true;
+
+function editTheme() {
+  var newText = document.getElementById('edit').value;
+  if(IsTheme == true){
+    var foundIndex = notes.findIndex(note => note.theme === initTheme); // Ищем индекс заметки с темой initTheme
+    if (foundIndex !== -1) { // Если заметка найдена
+      notes[foundIndex].theme = newText; // Обновляем текст заметки
+      saveList(); // Сохраняем изменения
+      loadList(); // Загружаем обновленный список заметок
+    } else {
+      console.log("Note with theme " + initTheme + " not found."); // Выводим сообщение об ошибке, если заметка не найдена
+    }
+  } else {
+    var foundIndex = notes.findIndex(note => note.text === initTheme); // Ищем индекс заметки с темой initTheme
+    if (foundIndex !== -1) { // Если заметка найдена
+      notes[foundIndex].text = newText; // Обновляем текст заметки
+      saveList(); // Сохраняем изменения
+      loadList(); // Загружаем обновленный список заметок
+    } else {
+      console.log("Note with theme " + initTheme + " not found."); // Выводим сообщение об ошибке, если заметка не найдена
+    }
+  }
+}
+
 
 function save() {
   var theme = document.getElementById("markTheme").value;
@@ -28,21 +55,47 @@ function loadList() {
   var length = notes.length;
 
   while (complete < length) {
-    let div = document.createElement('div');
-    div.className = "mark";
-    let divMain = document.createElement('div');
-    divMain.className = "divMain";
+    let divTheme = document.createElement('div');
+    divTheme.id = "divThemeDiv";
+    let divText = document.createElement('div');
+    divText.id = "divTextDiv";
+    let Mark = document.createElement('div');
+    Mark.className = "Mark";
+
 
 
     const textARR = notes[complete];
 
-    var theme = "<h3>" + textARR.theme + ":</h3>";
-    var text = "<p class='p'>" + textARR.text + "</p>";
+    var markAreas =document.createElement('div');
+    markAreas.style.display = "flex";
+    markAreas.style.flexFlow = "column";
 
-    var text = theme + text;
+    var theme = document.createElement('h3'); // Создаем элемент h3 для темы
+    theme.className = "noteTheme";
+    theme.textContent = textARR.theme; // Устанавливаем текст для элемента темы
+    theme.addEventListener("click", function () { // Применяем метод addEventListener к элементу
+      var editDiv = document.getElementsByClassName('editDiv')[0]; // Получаем первый элемент с классом 'editDiv'
+      initTheme = textARR.theme;
+      console.log(initTheme);
+      IsTheme = true;
+      editDiv.style.display = "flex";
+    });
 
-    div.innerHTML = text;
-    divMain.innerHtml = div;
+    
+    var text = document.createElement('p'); // Создаем элемент h3 для темы
+    text.className = "noteText";
+    text.textContent = textARR.text; // Устанавливаем текст для элемента темы
+    text.addEventListener("click", function () { // Применяем метод addEventListener к элементу
+      var editDiv = document.getElementsByClassName('editDiv')[0]; // Получаем первый элемент с классом 'editDiv'
+      initTheme = textARR.text;
+      console.log(initTheme);
+      IsTheme = false;
+      editDiv.style.display = "flex";
+    });
+
+
+    divTheme.appendChild(theme);
+    divText.appendChild(text);
 
     // Создаем кнопку удаления
     let del = document.createElement("button");
@@ -64,9 +117,11 @@ function loadList() {
     });
 
     // Добавляем div на страницу
-    place.appendChild(divMain);
-    divMain.appendChild(div);
-    divMain.appendChild(del);
+    place.appendChild(Mark);
+    Mark.appendChild(markAreas);
+    markAreas.appendChild(divTheme);
+    markAreas.appendChild(divText);
+    Mark.appendChild(del);
 
     complete = complete + 1;
     console.log(complete);

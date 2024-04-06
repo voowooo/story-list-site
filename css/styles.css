@@ -20,7 +20,7 @@ body{
     font-family: 'San Francisco', Helvetica, Arial, san-serif;
 }
 
-.markText {
+textarea {
     width: 50%;
     height: 50%;
     font-size: 35px;
@@ -33,7 +33,7 @@ body{
     background-color: rgb(61, 61, 61);
 }
 
-.markText:focus{
+textarea:focus{
     border-color: rgb(173, 173, 173);
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
@@ -248,11 +248,12 @@ h3 {
     margin-left: 100px;
 }
 
-.divMain {
+.Mark {
     display: flex;
     border: 5px solid rgb(255, 255, 255);
     border-radius: 10px;
     margin: 10px;
+    padding: 10px;
 }
 
 .delConf {
@@ -284,4 +285,26 @@ h3 {
 button#deleteConf:hover {
     background-color: rgb(255, 104, 104);
     color: rgb(0, 0, 0);
+}
+
+.noteTheme{
+    font-size: 35px;
+}
+
+.noteText{
+    font-size: 26px;
+    color: rgb(206, 206, 206);
+}
+
+.editDiv {
+    display: none;
+    flex-flow: column;
+    align-items: center;
+    border: 3px solid white;
+    border-radius: 20px;
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+    position: sticky;
+    /* position: absolute; */
 }
