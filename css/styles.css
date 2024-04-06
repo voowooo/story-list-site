@@ -297,14 +297,24 @@ button#deleteConf:hover {
 }
 
 .editDiv {
+    animation: show 0.7s;
+    background-color: rgba(0, 0, 0, 0.745);
+    z-index: 2;
+    top: 30%;
+    font-size: 35px;
     display: none;
     flex-flow: column;
     align-items: center;
     border: 3px solid white;
     border-radius: 20px;
-    width: fit-content;
+    width: min-content;
     height: fit-content;
     align-self: center;
+    padding: 10px;
     position: sticky;
     /* position: absolute; */
+}
+
+.editDiv textarea {
+    width: 300px;
 }

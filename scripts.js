@@ -9,9 +9,16 @@ var initTheme = "none";
 var initText = "none";
 var IsTheme = true;
 
+function closeEdit(){
+  var editDiv = document.getElementsByClassName('editDiv')[0]; // Получаем первый элемент с классом 'editDiv'
+  editDiv.style.display = "none";
+}
+
 function editTheme() {
   var newText = document.getElementById('edit').value;
+  
   if(IsTheme == true){
+    editTextDiv.innerHTML = "edit theme";
     var foundIndex = notes.findIndex(note => note.theme === initTheme); // Ищем индекс заметки с темой initTheme
     if (foundIndex !== -1) { // Если заметка найдена
       notes[foundIndex].theme = newText; // Обновляем текст заметки
@@ -21,6 +28,7 @@ function editTheme() {
       console.log("Note with theme " + initTheme + " not found."); // Выводим сообщение об ошибке, если заметка не найдена
     }
   } else {
+    editTextDiv = "edit text";
     var foundIndex = notes.findIndex(note => note.text === initTheme); // Ищем индекс заметки с темой initTheme
     if (foundIndex !== -1) { // Если заметка найдена
       notes[foundIndex].text = newText; // Обновляем текст заметки
@@ -30,6 +38,8 @@ function editTheme() {
       console.log("Note with theme " + initTheme + " not found."); // Выводим сообщение об ошибке, если заметка не найдена
     }
   }
+  var editDiv = document.getElementsByClassName('editDiv')[0]; // Получаем первый элемент с классом 'editDiv'
+  editDiv.style.display = "none";
 }
 
 
@@ -73,11 +83,14 @@ function loadList() {
     var theme = document.createElement('h3'); // Создаем элемент h3 для темы
     theme.className = "noteTheme";
     theme.textContent = textARR.theme; // Устанавливаем текст для элемента темы
-    theme.addEventListener("click", function () { // Применяем метод addEventListener к элементу
+    theme.addEventListener("dblclick", function () { // Применяем метод addEventListener к элементу
       var editDiv = document.getElementsByClassName('editDiv')[0]; // Получаем первый элемент с классом 'editDiv'
       initTheme = textARR.theme;
       console.log(initTheme);
       IsTheme = true;
+      var editTextDiv = document.getElementById('editTextDiv');
+      editTextDiv.innerHTML = "Edit Theme";
+      document.getElementById('edit').value = textARR.theme;
       editDiv.style.display = "flex";
     });
 
@@ -85,11 +98,14 @@ function loadList() {
     var text = document.createElement('p'); // Создаем элемент h3 для темы
     text.className = "noteText";
     text.textContent = textARR.text; // Устанавливаем текст для элемента темы
-    text.addEventListener("click", function () { // Применяем метод addEventListener к элементу
+    text.addEventListener("dblclick", function () { // Применяем метод addEventListener к элементу
       var editDiv = document.getElementsByClassName('editDiv')[0]; // Получаем первый элемент с классом 'editDiv'
       initTheme = textARR.text;
       console.log(initTheme);
       IsTheme = false;
+      var editTextDiv = document.getElementById('editTextDiv');
+      editTextDiv.innerHTML = "Edit Text";
+      document.getElementById('edit').value = textARR.text;
       editDiv.style.display = "flex";
     });
 

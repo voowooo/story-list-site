@@ -8,13 +8,13 @@ body.dark-theme {
     background: #ffffff;
 }
 
-body.dark-theme .markText {
+body.dark-theme textarea {
     color: rgb(0, 0, 0);
     background: transparent;
     border-color: rgb(0, 0, 0);
 }
 
-body.dark-theme .markText:focus{
+body.dark-theme textarea:focus{
     border-color: rgb(173, 173, 173);
     box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
 }
@@ -62,6 +62,25 @@ body.dark-theme .delConf {
     background-color: rgba(255, 255, 255, 0.915);
 }
 
-body.dark-theme .divMain {
+body.dark-theme .Mark {
     border-color: black;
+}
+
+body.dark-theme .editDiv {
+    border: 3px solid white;
+    border-color: black;
+    background-color: rgba(255, 255, 255, 0.745);
+    z-index: 2;
+    top: 30%;
+    font-size: 35px;
+    display: none;
+    flex-flow: column;
+    align-items: center;
+    border-radius: 20px;
+    width: min-content;
+    height: fit-content;
+    align-self: center;
+    padding: 10px;
+    position: sticky;
+    /* position: absolute; */
 }
