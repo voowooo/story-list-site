@@ -14,8 +14,13 @@
     <div class="alert">
         <p>something went wrong, sorry(</p>
     </div>
+    <div class="changelog">
+        <p style="font-size: 35px; color: white; align-self: center;" id="version">New Version! x.x</p>
+        <p style="font-size: 25px; color: white; margin-bottom: 10px;">Changelog:</p>
+        <p id="description">description of update</p>
+    </div>
     <div class="editDiv">
-        <p id="editTextDiv">edit</p>
+        <p id="editTextDiv">Edit</p>
         <textarea id="edit"></textarea>
         <div style="display: flex;">
             <button onclick="editTheme()">confirm</button>
@@ -23,7 +28,7 @@
         </div>
     </div>
     <div class="delConf" id="delConf">
-        <p id="confText">are you sure to delete</p>
+        <p id="confText" style="font-size: 35px;">delete?</p>
         <p id="confTheme" style="font-size: 25px;">THEME</p>
         <div>
             <button onclick="delNote();" id="deleteConf" style="color: rgb(255, 145, 145);">delete</button>

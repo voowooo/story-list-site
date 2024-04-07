@@ -1,3 +1,6 @@
+var currentAppVersion = "2.6"; // Устанавливаем текущую версию приложения
+
+var textForLog = "added the ability to edit the topic and text of notes: </br> just double-click on the topic or text </br> </br> added auto-sorting of notes </br> if they have the same topic"
 
 var tag = "0";
 var tag = "0";
@@ -8,6 +11,10 @@ var confTheme = document.getElementById("confTheme");
 var initTheme = "none";
 var initText = "none";
 var IsTheme = true;
+var ShowChangeLog = true;
+
+
+
 
 function closeEdit(){
   var editDiv = document.getElementsByClassName('editDiv')[0]; // Получаем первый элемент с классом 'editDiv'
@@ -46,11 +53,21 @@ function editTheme() {
 function save() {
   var theme = document.getElementById("markTheme").value;
   var text = document.getElementById("text").value;
-  var id = notes.length + 1;
-  notes.push({ theme, text, id });
-  console.log(notes);
-  saveList();
-  loadList();
+  var foundIndex = notes.findIndex(note => note.theme === theme); // Ищем индекс заметки с темой initTheme
+  console.log("index= " + foundIndex);
+  if (foundIndex !== -1) { // Если заметка найдена
+      notes[foundIndex].text = notes[foundIndex].text + "</br>" + text;
+      saveList();
+      loadList();
+  } else {
+    var id = notes.length + 1;
+    notes.push({ theme, text, id });
+    console.log(notes);
+    saveList();
+    loadList();
+  }
+  document.getElementById("markTheme").value = "";
+  document.getElementById("text").value = "";
 }
 
 function saveList() {
@@ -82,7 +99,7 @@ function loadList() {
 
     var theme = document.createElement('h3'); // Создаем элемент h3 для темы
     theme.className = "noteTheme";
-    theme.textContent = textARR.theme; // Устанавливаем текст для элемента темы
+    theme.innerHTML = textARR.theme.replace(/\n/g, "<br>");
     theme.addEventListener("dblclick", function () { // Применяем метод addEventListener к элементу
       var editDiv = document.getElementsByClassName('editDiv')[0]; // Получаем первый элемент с классом 'editDiv'
       initTheme = textARR.theme;
@@ -97,7 +114,8 @@ function loadList() {
     
     var text = document.createElement('p'); // Создаем элемент h3 для темы
     text.className = "noteText";
-    text.textContent = textARR.text; // Устанавливаем текст для элемента темы
+    text.innerHTML = textARR.text.replace(/\n/g, "<br>");
+    console.log(text.innerHTML)
     text.addEventListener("dblclick", function () { // Применяем метод addEventListener к элементу
       var editDiv = document.getElementsByClassName('editDiv')[0]; // Получаем первый элемент с классом 'editDiv'
       initTheme = textARR.text;
@@ -295,8 +313,27 @@ if (languageFistTwo == 'ru') {
   location.href = window.location.pathname + '#en';
 };
 
+function changeLog() {
+  var ShowChangeLog = localStorage.getItem('ShowChangeLog'); // Получаем значение из localStorage
+  if (ShowChangeLog === null || ShowChangeLog === "true") { // Проверяем, если значение не установлено или равно "true"
+    var logDiv = document.getElementsByClassName('changelog')[0]; // Получаем первый элемент с классом 'editDiv'
+    logDiv.style.display = "flex";
+    var versionText = document.getElementById("version");
+    versionText.innerHTML = "New Version! " + currentAppVersion;
+    var logText = document.getElementById("description");
+    logText.innerHTML = textForLog;
+    localStorage.setItem('ShowChangeLog', false); // Устанавливаем значение в localStorage
+  }
+}
+
 window.addEventListener('load', () => {
+  var storedAppVersion = localStorage.getItem('appVersion'); // Получаем сохраненную версию приложения
+  if (storedAppVersion !== currentAppVersion) { // Если текущая версия отличается от сохраненной
+    localStorage.setItem('ShowChangeLog', true); // Устанавливаем ShowChangeLog в true, чтобы сообщение отобразилось снова
+    localStorage.setItem('appVersion', currentAppVersion); // Обновляем версию приложения в localStorage
+  }
   loadList();
+  changeLog();
   console.log(localStorage);
   if(localStorage.getItem('notes')) {
     notes = JSON.parse(localStorage.getItem('notes'));
@@ -309,3 +346,4 @@ window.addEventListener('load', () => {
 function hideConfirm() {
   confirm.style.display = "none";
 }
+

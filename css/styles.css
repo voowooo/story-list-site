@@ -300,7 +300,7 @@ button#deleteConf:hover {
     animation: show 0.7s;
     background-color: rgba(0, 0, 0, 0.745);
     z-index: 2;
-    top: 30%;
+    top: 25%;
     font-size: 35px;
     display: none;
     flex-flow: column;
@@ -317,4 +317,24 @@ button#deleteConf:hover {
 
 .editDiv textarea {
     width: 300px;
+}
+
+.changelog {
+    animation: show 0.7s;
+    background-color: rgba(0, 0, 0, 0.745);
+    z-index: 2;
+    top: 25%;
+    font-size: 20px;
+    color: rgb(206, 206, 206);
+    display: none;
+    flex-flow: column;
+    align-items: left;
+    border: 3px solid white;
+    border-radius: 20px;
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+    padding: 20px;
+    position: absolute;
+    position: sticky;
 }
