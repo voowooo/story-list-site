@@ -13,7 +13,6 @@ var ShowChangeLog = true;
 
 
 
-
 function closeEdit(){
   var editDiv = document.getElementsByClassName('editDiv')[0]; // Получаем первый элемент с классом 'editDiv'
   editDiv.style.display = "none";
@@ -352,9 +351,7 @@ function changeLog() {
 
 window.addEventListener('load', () => {
   var storedAppVersion = localStorage.getItem('appVersion'); // Получаем сохраненную версию приложения
-  var showChangeLog = localStorage.getItem('ShowChangeLog'); // Проверяем, должен ли отображаться журнал изменений
-  if (storedAppVersion !== currentAppVersion && showChangeLog) { // Если текущая версия отличается от сохраненной версии и журнал изменений должен быть отображен
-    localStorage.setItem('ShowChangeLog', false); // Устанавливаем ShowChangeLog в false, чтобы предотвратить повторное отображение журнала изменений
+  if (storedAppVersion !== currentAppVersion) { // Если текущая версия отличается от сохраненной версии
     localStorage.setItem('appVersion', currentAppVersion); // Обновляем версию приложения в localStorage
     changeLog(); // Отображаем журнал изменений
   }
