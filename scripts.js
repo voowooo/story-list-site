@@ -1,4 +1,4 @@
-var currentAppVersion = "2.6"; // Устанавливаем текущую версию приложения
+var currentAppVersion = "2.7"; // Устанавливаем текущую версию приложения
 
 var textForLog = "added the ability to edit the topic and text of notes: </br> just double-click on the topic or text </br> </br> added auto-sorting of notes </br> if they have the same topic"
 
@@ -76,6 +76,8 @@ function saveList() {
 }
 
 function loadList() {
+  var selectThemeMenu = document.getElementById('selectTheme');
+  selectThemeMenu.innerHTML = "";
   var place = document.getElementById("place");
   place.innerHTML = "";
   var complete = 0;
@@ -109,6 +111,21 @@ function loadList() {
       editTextDiv.innerHTML = "Edit Theme";
       document.getElementById('edit').value = textARR.theme;
       editDiv.style.display = "flex";
+    });
+
+    var selectThemeMenu = document.getElementById('selectTheme');
+    var optTheme = document.createElement('option');
+    optTheme.innerHTML = theme.innerHTML; // Предполагается, что `theme` где-то определен
+    optTheme.value = theme.innerHTML; // Предполагается, что `theme` где-то определен
+    console.log(optTheme.value);
+
+    // Добавляем пункт в меню выбора
+    selectThemeMenu.appendChild(optTheme);
+
+    // Добавляем обработчик события change к меню выбора
+    selectThemeMenu.addEventListener("change", function(){
+      document.getElementById("markTheme").value = selectThemeMenu.value;
+      console.log(selectThemeMenu.value); // Выводим в консоль значение выбранного пункта
     });
 
     
@@ -150,7 +167,10 @@ function loadList() {
       confirm.style.display = "flex";
     });
 
+
+
     // Добавляем div на страницу
+    selectThemeMenu.appendChild(optTheme);
     place.appendChild(Mark);
     Mark.appendChild(markAreas);
     markAreas.appendChild(divTheme);

@@ -55,7 +55,12 @@
             </div>
         </div>
     </div>
-    <textarea class="markText" style="height: 50px;" id="markTheme" cols="30" rows="1" placeholder="theme"></textarea>
+    <div style="display: flex; align-items: center;">
+        <textarea class="markText" style="height: 50px; width: 40%;" id="markTheme" cols="30" rows="1" placeholder="theme"></textarea>
+        <select style="margin-left: 20px;" id="selectTheme">
+            <option>theme</option>
+        </select>
+    </div>
     <textarea class="markText" id="text" cols="30" rows="10" placeholder="mark text"></textarea>
     <div class="buttons">
         <button id="save" onclick="save()" style="width: 150px;" class="saveLng">сохранить</button>
