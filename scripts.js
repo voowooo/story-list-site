@@ -1,5 +1,3 @@
-var currentAppVersion = "2.7"; // Устанавливаем текущую версию приложения
-
 var textForLog = "added the ability to edit the topic and text of notes: </br> just double-click on the topic or text </br> </br> added auto-sorting of notes </br> if they have the same topic"
 
 var tag = "0";
@@ -334,32 +332,39 @@ if (languageFistTwo == 'ru') {
 };
 
 function changeLog() {
-  var ShowChangeLog = localStorage.getItem('ShowChangeLog'); // Получаем значение из localStorage
-  if (ShowChangeLog === null || ShowChangeLog === "true") { // Проверяем, если значение не установлено или равно "true"
-    var logDiv = document.getElementsByClassName('changelog')[0]; // Получаем первый элемент с классом 'editDiv'
-    logDiv.style.display = "flex";
-    var versionText = document.getElementById("version");
-    versionText.innerHTML = "New Version! " + currentAppVersion;
-    var logText = document.getElementById("description");
-    logText.innerHTML = textForLog;
-    localStorage.setItem('ShowChangeLog', false); // Устанавливаем значение в localStorage
+  var logDivMain = document.getElementsByClassName('changelogDiv')[0]; // Получаем первый элемент с классом 'editDiv'
+  var logDiv = document.getElementsByClassName('changelog')[0]; // Получаем первый элемент с классом 'editDiv'
+  logDivMain.style.display = "flex";
+  var complete = log.length;
+  while (complete > 0){
+    var textARR = log[complete -1];
+    var versionText = document.createElement('p');
+    versionText.innerHTML = "Version " + textARR.version;
+    versionText.className = "changelogVersion";
+    var Text = document.createElement('p');
+    Text.innerHTML =  textARR.text + "</br>";
+    Text.className = "changelogText";
+    logDiv.appendChild(versionText);
+    logDiv.appendChild(Text);
+    complete = complete - 1;
   }
 }
 
 window.addEventListener('load', () => {
   var storedAppVersion = localStorage.getItem('appVersion'); // Получаем сохраненную версию приложения
-  if (storedAppVersion !== currentAppVersion) { // Если текущая версия отличается от сохраненной
-    localStorage.setItem('ShowChangeLog', true); // Устанавливаем ShowChangeLog в true, чтобы сообщение отобразилось снова
+  var showChangeLog = localStorage.getItem('ShowChangeLog'); // Проверяем, должен ли отображаться журнал изменений
+  if (storedAppVersion !== currentAppVersion && showChangeLog) { // Если текущая версия отличается от сохраненной версии и журнал изменений должен быть отображен
+    localStorage.setItem('ShowChangeLog', false); // Устанавливаем ShowChangeLog в false, чтобы предотвратить повторное отображение журнала изменений
     localStorage.setItem('appVersion', currentAppVersion); // Обновляем версию приложения в localStorage
+    changeLog(); // Отображаем журнал изменений
   }
-  loadList();
-  changeLog();
+  loadList(); // Загружаем список заметок
   console.log(localStorage);
   if(localStorage.getItem('notes')) {
     notes = JSON.parse(localStorage.getItem('notes'));
     loadList();
   } else {
-    console.log("Storage is empty");
+    console.log("Хранилище пусто");
   }
 });
 

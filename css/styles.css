@@ -319,7 +319,7 @@ button#deleteConf:hover {
     width: 300px;
 }
 
-.changelog {
+.changelogDiv {
     animation: show 0.7s;
     background-color: rgba(0, 0, 0, 0.745);
     z-index: 2;
@@ -337,4 +337,19 @@ button#deleteConf:hover {
     padding: 20px;
     position: absolute;
     position: sticky;
+}
+
+/* .changeLog {
+    flex-flow: column-reverse;
+} */
+
+
+.changelogVersion {
+    font-size: 26px;
+    color: white;
+}
+
+.changelogText {
+    margin: 10px;
+    margin-top: 3px;
 }
