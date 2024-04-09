@@ -16,9 +16,10 @@
     </div>
     </div>
     <div class="changelogDiv">
-        <p style="align-self: center; font-size: 35px;" class="changelogVersion">what`s new<p>
+        <p style="align-self: center; font-size: 35px;" class="changelogVersion" id="whtasnew">what`s new<p>
         <div class="changelog">
         </div>
+        <button onclick="closeChan('changeLog')">close</button>
     </div>
     <div class="editDiv">
         <p id="editTextDiv">Edit</p>
@@ -73,14 +74,19 @@
     </div>
     <div id="place" class="place"></div>
     <footer style="margin-top: 50px;">
-        <p>dev by voowooo</p>
-        <p onclick="changeLog()" style="cursor: pointer; text-decoration: underline;">changelog</p>
-        <div class="socialsList">
-            <div class="socialsLogo">
-                <a href="https://www.instagram.com/jek_a709/"><img src="img/instLogoB.png" style="width: 30px;"></a>
-                <a href="https://github.com/voowooo"><img src="img/gitLogo.png" style="width: 30px;"></a>
-                <a href="https://www.twitch.tv/voo1221"><img src="img/twitchLogo.png" style="width: 30px;"></a>
-                <a href="https://www.google.com"><img src="img/telegramLogo.png" style="width: 30px;"></a>
+        <div class="column">
+            <p>dev by voowooo</p>
+            <p onclick="changeLog()" style="cursor: pointer; text-decoration: underline;">changelog</p>
+        </div>
+        <div>
+            <p>socials:</p>
+            <div class="socialsList"> 
+                <div class="socialsLogo">
+                    <a href="https://www.instagram.com/jek_a709/"><img src="img/instLogoB.png" style="width: 30px;"></a>
+                    <a href="https://github.com/voowooo"><img src="img/gitLogo.png" style="width: 30px;"></a>
+                    <a href="https://www.twitch.tv/voo1221"><img src="img/twitchLogo.png" style="width: 30px;"></a>
+                    <a href="https://www.google.com"><img src="img/telegramLogo.png" style="width: 30px;"></a>
+                </div>
             </div>
         </div>
     </footer>

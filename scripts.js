@@ -330,6 +330,19 @@ if (languageFistTwo == 'ru') {
   location.href = window.location.pathname + '#en';
 };
 
+function lastChanges() {
+  var logDivMain = document.getElementsByClassName('changelogDiv')[0]; // Получаем первый элемент с классом 'editDiv'
+  var logDiv = document.getElementsByClassName('changelog')[0]; // Получаем первый элемент с классом 'editDiv'
+  logDivMain.style.display = "flex";
+  var textARR = log[log.length - 1];
+  document.getElementById('whtasnew').innerHTML = "New Version! " + textARR.version;
+  // versionText.innerHTML = "Version " + textARR.version;
+  var Text = document.createElement('p');
+  Text.innerHTML =  textARR.text + "</br>";
+  Text.className = "changelogText";
+  logDiv.appendChild(Text);
+}
+
 function changeLog() {
   var logDivMain = document.getElementsByClassName('changelogDiv')[0]; // Получаем первый элемент с классом 'editDiv'
   var logDiv = document.getElementsByClassName('changelog')[0]; // Получаем первый элемент с классом 'editDiv'
@@ -353,7 +366,7 @@ window.addEventListener('load', () => {
   var storedAppVersion = localStorage.getItem('appVersion'); // Получаем сохраненную версию приложения
   if (storedAppVersion !== currentAppVersion) { // Если текущая версия отличается от сохраненной версии
     localStorage.setItem('appVersion', currentAppVersion); // Обновляем версию приложения в localStorage
-    changeLog(); // Отображаем журнал изменений
+    lastChanges(); // Отображаем журнал изменений
   }
   loadList(); // Загружаем список заметок
   console.log(localStorage);
@@ -369,3 +382,9 @@ function hideConfirm() {
   confirm.style.display = "none";
 }
 
+function closeChan(what) {
+  console.log("close is pressed");
+  if (what == 'changeLog'){
+    document.getElementsByClassName('changelogDiv')[0].style.display = "none";
+  }
+}

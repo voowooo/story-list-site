@@ -1,6 +1,6 @@
-/* *{
+*{
     margin: 0px;
-} */
+}
 
 body{
     display: flex;
@@ -363,6 +363,8 @@ footer {
     height: 50px;
     padding: 20px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 footer p{
@@ -372,6 +374,7 @@ footer p{
 
 .socialsList{
     /* height: 1000px; */
+    width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -379,4 +382,23 @@ footer p{
 
 a {
     margin: 5px;
+}
+
+.column {
+    display: flex;
+    flex-flow: column;
+}
+
+.column * {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.socialsList img{
+    padding: 3px;
+    border: 2px solid rgba(255, 255, 255, 0) ;
+}
+
+.socialsList img:hover{
+    border: 2px solid white ;
 }
