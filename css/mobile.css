@@ -15,6 +15,10 @@
     button#save {
         width: 90%;
     }
+
+    .wrapper {
+        flex-flow: column;
+    }
 }
 
 @media(max-width: 768px) {

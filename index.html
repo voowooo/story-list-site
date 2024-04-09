@@ -57,14 +57,14 @@
             </div>
         </div>
     </div>
-    <div>
-        <div style="display: flex; align-items: center; justify-content: space-between; width: fit-content;">
+    <div class="column" style="margin: 10px; width: fit-content;">
+        <div style="display: flex; justify-content: space-between; width: 98%; align-items: center;">
             <textarea class="markText" style="height: 50px; width: 76%;" id="markTheme" cols="30" rows="1" placeholder="theme"></textarea>
-            <select id="selectTheme" style="margin-right: 20px;">
+            <select id="selectTheme" style="margin-right: 20px; margin-left: 10px;">
                 <option>theme</option>
             </select>
         </div>
-        <textarea class="markText" id="text" cols="30" rows="15" placeholder="mark text"></textarea>
+        <textarea class="markText" id="text" rows="15" placeholder="mark text" style="width: 93%;"></textarea>
         <div class="buttons">
             <button id="save" onclick="save()" style="width: 150px;" class="saveLng">сохранить</button>
         </div>
@@ -76,16 +76,20 @@
     <footer style="margin-top: 50px;">
         <div class="column">
             <p>dev by voowooo</p>
-            <p onclick="changeLog()" style="cursor: pointer; text-decoration: underline;">changelog</p>
+            <p onclick="changeLog()" style="cursor: pointer; text-decoration: underline; margin-top: 10px;">changelog</p>
         </div>
         <div>
-            <p>socials:</p>
             <div class="socialsList"> 
-                <div class="socialsLogo">
-                    <a href="https://www.instagram.com/jek_a709/"><img src="img/instLogoB.png" style="width: 30px;"></a>
-                    <a href="https://github.com/voowooo"><img src="img/gitLogo.png" style="width: 30px;"></a>
-                    <a href="https://www.twitch.tv/voo1221"><img src="img/twitchLogo.png" style="width: 30px;"></a>
-                    <a href="https://www.google.com"><img src="img/telegramLogo.png" style="width: 30px;"></a>
+                <p>socials:</p>
+                <div class="wrapper">
+                    <div>
+                        <a href="https://www.instagram.com/jek_a709/"><img src="img/instLogoB.png" style="width: 30px;"></a>
+                        <a href="https://github.com/voowooo"><img src="img/gitLogo.png" style="width: 30px;"></a>
+                    </div>
+                    <div>
+                        <a href="https://www.twitch.tv/voo1221"><img src="img/twitchLogo.png" style="width: 30px;"></a>
+                        <a href="https://www.google.com"><img src="img/telegramLogo.png" style="width: 30px;"></a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -92,14 +92,14 @@ button:hover {
 
 .buttons{
     margin: 20px;
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: center;
 }
 
 .wrapper {
     display: flex;
-    flex-flow: column;
+    /* flex-flow: column; */
 }
 
 .place {
@@ -360,8 +360,8 @@ button#deleteConf:hover {
 
 footer {
     background-color: rgba(33, 33, 33, 0.363);
-    height: 50px;
-    padding: 20px;
+    height: fit-content;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -378,6 +378,7 @@ footer p{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-flow: column;
 }
 
 a {
@@ -389,13 +390,13 @@ a {
     flex-flow: column;
 }
 
-.column * {
+/* .column * {
     margin-top: 10px;
     margin-bottom: 10px;
-}
+} */
 
 .socialsList img{
-    padding: 3px;
+    padding: 2px;
     border: 2px solid rgba(255, 255, 255, 0) ;
 }
 
