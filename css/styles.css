@@ -397,7 +397,9 @@ a {
 
 .socialsList img{
     padding: 2px;
-    border: 2px solid rgba(255, 255, 255, 0) ;
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0);
+    transition: 0.3s;
 }
 
 .socialsList img:hover{
