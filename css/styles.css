@@ -3,6 +3,7 @@
 }
 
 body{
+    padding: 3px;
     display: flex;
     flex-flow: column;
     background-color: black;
@@ -91,7 +92,7 @@ button:hover {
 }
 
 .buttons{
-    margin: 20px;
+    margin-top: 20px;
     width: 100%;
     display: flex;
     justify-content: center;

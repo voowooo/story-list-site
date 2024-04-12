@@ -289,6 +289,7 @@ function changeLang(){
   document.getElementById('confText').innerHTML = langArr['confText'][hash];
   document.getElementById('deleteConf').innerHTML = langArr['deleteConf'][hash];
   document.getElementById('noConf').innerHTML = langArr['noConf'][hash];
+  document.getElementById('close').innerHTML = langArr['close'][hash];
 }
 
 changeLang();
@@ -345,7 +346,8 @@ function lastChanges() {
 
 function changeLog() {
   var logDivMain = document.getElementsByClassName('changelogDiv')[0]; // Получаем первый элемент с классом 'editDiv'
-  var logDiv = document.getElementsByClassName('changelog')[0]; // Получаем первый элемент с классом 'editDiv'
+  var logDiv = document.getElementsByClassName('changelog')[0];
+  logDiv.innerHTML = ""; // Получаем первый элемент с классом 'editDiv'
   logDivMain.style.display = "flex";
   var complete = log.length;
   while (complete > 0){

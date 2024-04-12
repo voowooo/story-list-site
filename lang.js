@@ -47,4 +47,8 @@ const langArr = {
         "ru": "нет, назад",
         "en": "no, back",
     },
+    "close" : {
+        "ru": "закрыть",
+        "en": "close",
+    },
 }
