@@ -26,6 +26,7 @@ body{
 }
 
 textarea {
+    resize: none;
     width: 50%;
     height: 50%;
     font-size: 35px;
@@ -234,6 +235,10 @@ select {
     transition: 0.2s;
 }
 
+p.test {
+    text-align: right;
+}
+
 p {
     /* font-size: 25px; */
     /* color: red; */
@@ -328,7 +333,7 @@ button#deleteConf:hover {
     animation: show 0.7s;
     background-color: rgba(0, 0, 0, 0.745);
     z-index: 2;
-    top: 25%;
+    top: 5%;
     font-size: 20px;
     color: rgb(206, 206, 206);
     display: none;

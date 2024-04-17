@@ -48,6 +48,7 @@ function editTheme() {
 
 
 function save() {
+  
   var theme = document.getElementById("markTheme").value;
   var text = document.getElementById("text").value;
   var foundIndex = notes.findIndex(note => note.theme === theme); // Ищем индекс заметки с темой initTheme
@@ -66,6 +67,8 @@ function save() {
   document.getElementById("markTheme").value = "";
   document.getElementById("text").value = "";
 }
+
+
 
 function saveList() {
   localStorage.setItem('notes', JSON.stringify(notes));
@@ -87,6 +90,9 @@ function loadList() {
     divText.id = "divTextDiv";
     let Mark = document.createElement('div');
     Mark.className = "Mark";
+    let textAlignS = document.createElement('button');
+    textAlignS.textContent = "TA";
+    var modeTextAlignS = "center";
 
 
 
@@ -164,15 +170,34 @@ function loadList() {
       confirm.style.display = "flex";
     });
 
+    
 
+
+    let them = document.createElement('div');
+
+    textAlignS.addEventListener("click", function () {
+      if (modeTextAlignS == "center"){
+        them.style.display = "flex";
+        them.style.justifyContent = "center";
+        modeTextAlignS = "right";
+      } else if (modeTextAlignS == "right"){
+        them.style.justifyContent = "right";
+        modeTextAlignS = "left";
+      } else if (modeTextAlignS == "left"){
+        them.style.justifyContent = "left";
+        modeTextAlignS = "center";
+      }
+    });
 
     // Добавляем div на страницу
     selectThemeMenu.appendChild(optTheme);
     place.appendChild(Mark);
     Mark.appendChild(markAreas);
-    markAreas.appendChild(divTheme);
+    markAreas.appendChild(them);
+    them.appendChild(divTheme);
     markAreas.appendChild(divText);
     Mark.appendChild(del);
+    Mark.appendChild(textAlignS);
 
     complete = complete + 1;
     console.log(complete);
@@ -365,6 +390,7 @@ function changeLog() {
 }
 
 window.addEventListener('load', () => {
+  TestR();
   var storedAppVersion = localStorage.getItem('appVersion'); // Получаем сохраненную версию приложения
   if (storedAppVersion !== currentAppVersion) { // Если текущая версия отличается от сохраненной версии
     localStorage.setItem('appVersion', currentAppVersion); // Обновляем версию приложения в localStorage
@@ -389,4 +415,12 @@ function closeChan(what) {
   if (what == 'changeLog'){
     document.getElementsByClassName('changelogDiv')[0].style.display = "none";
   }
+}
+
+function TestR(){
+  console.log("TestR has started");
+  var cols = 5;
+  var textarea = document.getElementById("markTheme");
+  cols = textarea.width; 
+  console.log("cols= " + cols);
 }
