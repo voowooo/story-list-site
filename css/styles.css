@@ -254,9 +254,9 @@ h3 {
     margin-bottom: 5px;
 }
 
-.del {
+/* .del {
     margin-left: 100px;
-}
+} */
 
 .Mark {
     display: flex;
@@ -410,4 +410,10 @@ a {
 
 .socialsList img:hover{
     border: 2px solid white ;
+}
+
+.buttonsMark {
+    display: flex;
+    flex-flow: column;
+    margin-left: 100px;
 }

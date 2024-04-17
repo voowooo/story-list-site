@@ -159,7 +159,7 @@ function loadList() {
     del.style.padding = "0px";
     del.textContent = "×";
     del.id = complete + "del";
-    del.className = "del";
+    // del.className = "del";
 
     // Добавляем обработчик события для кнопки удаления
     del.addEventListener("click", function () {
@@ -189,6 +189,9 @@ function loadList() {
       }
     });
 
+    let buttonsDiv = document.createElement('div'); 
+    buttonsDiv.className = "buttonsMark";
+
     // Добавляем div на страницу
     selectThemeMenu.appendChild(optTheme);
     place.appendChild(Mark);
@@ -196,8 +199,9 @@ function loadList() {
     markAreas.appendChild(them);
     them.appendChild(divTheme);
     markAreas.appendChild(divText);
-    Mark.appendChild(del);
-    Mark.appendChild(textAlignS);
+    Mark.appendChild(buttonsDiv);
+    buttonsDiv.appendChild(del);
+    buttonsDiv.appendChild(textAlignS);
 
     complete = complete + 1;
     console.log(complete);
