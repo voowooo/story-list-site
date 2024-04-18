@@ -38,13 +38,12 @@
             <button onclick="hideConfirm()" id="noConf">no, go back</button>
         </div>
     </div>
-    <p class="test">text text</p>
     <div class="header">
         <p class="name" id="vop" ondblclick="devMode()">Mark For Walk</p>
         <button id = "clearButton" onclick="voowoo();" style="display: none;">clear(for dev)</button>
         <div style="position: relative; z-index: 0;">
-            <button onclick="settings()" id="settingsButt">settings</button>
-            <div class="settings" id="settings">
+            <button onclick="settings()" onmouseover="settingsShow()" onmouseout="settingsOut()" id="settingsButt">settings</button>
+            <div class="settings" id="settings" onmouseover="settingsShow()" onmouseout="settingsOut()">
                 <!-- <button onclick="settings()" style="width: fit-content; align-self: flex-end; margin: 0px;">settings</button> -->
                 <p style="margin-bottom: 5px; font-size: 20px;" id="STTheme">Theme</p>
                 <label class="switch">

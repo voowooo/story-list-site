@@ -157,6 +157,7 @@ function loadList() {
     del.style.width = "30px";
     del.style.height = "30px";
     del.style.padding = "0px";
+    del.style.alignSelf = "right";
     del.textContent = "×";
     del.id = complete + "del";
     // del.className = "del";
@@ -191,6 +192,8 @@ function loadList() {
 
     let buttonsDiv = document.createElement('div'); 
     buttonsDiv.className = "buttonsMark";
+    let settingsOfMark = document.createElement('div');
+    settingsOfMark.className = "settingsOfMark";
 
     // Добавляем div на страницу
     selectThemeMenu.appendChild(optTheme);
@@ -201,7 +204,8 @@ function loadList() {
     markAreas.appendChild(divText);
     Mark.appendChild(buttonsDiv);
     buttonsDiv.appendChild(del);
-    buttonsDiv.appendChild(textAlignS);
+    buttonsDiv.appendChild(settingsOfMark);
+    settingsOfMark.appendChild(textAlignS);
 
     complete = complete + 1;
     console.log(complete);
@@ -336,6 +340,17 @@ function settings() {
     settings.style.display = "none";
     toggleSettings = 0;
   }
+}
+
+function settingsShow() {
+  const settings = document.getElementById("settings");
+  settings.style.animation = "show 0.3s";
+  settings.style.display = "flex";
+}
+
+function settingsOut() {
+  const settings = document.getElementById("settings");
+  settings.style.display = "none";
 }
 
 const toggleSwitch = document.getElementById('togg');
