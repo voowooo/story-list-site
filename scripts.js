@@ -69,6 +69,11 @@ function save() {
 }
 
 
+function addPhoto() {
+  document.getElementById('fileInput').click();
+}
+
+
 
 function saveList() {
   localStorage.setItem('notes', JSON.stringify(notes));
@@ -190,10 +195,26 @@ function loadList() {
       }
     });
 
+    
     let buttonsDiv = document.createElement('div'); 
     buttonsDiv.className = "buttonsMark";
+
     let settingsOfMark = document.createElement('div');
     settingsOfMark.className = "settingsOfMark";
+
+    let showSettingsOfMark = document.createElement('button');
+    showSettingsOfMark.textContent = "s";
+    // showSettingsOfMark.style.width = "fit-content";
+    showSettingsOfMark.style.zIndex = "2";
+    showSettingsOfMark.addEventListener("mouseover", function () {
+      settingsOfMark.style.display = "flex";
+    });
+    showSettingsOfMark.addEventListener("mouseout", function () {
+      settingsOfMark.style.display = "none";
+    });
+
+    
+    
 
     // Добавляем div на страницу
     selectThemeMenu.appendChild(optTheme);
@@ -204,8 +225,9 @@ function loadList() {
     markAreas.appendChild(divText);
     Mark.appendChild(buttonsDiv);
     buttonsDiv.appendChild(del);
-    buttonsDiv.appendChild(settingsOfMark);
-    settingsOfMark.appendChild(textAlignS);
+    // buttonsDiv.appendChild(showSettingsOfMark);
+    // buttonsDiv.appendChild(settingsOfMark);
+    // settingsOfMark.appendChild(textAlignS);
 
     complete = complete + 1;
     console.log(complete);
