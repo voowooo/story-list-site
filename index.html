@@ -42,6 +42,7 @@
         <p class="name" id="vop" ondblclick="devMode()">Mark For Walk</p>
         <button id = "clearButton" onclick="voowoo();" style="display: none;">clear(for dev)</button>
         <div style="position: relative; z-index: 0;">
+            <button onclick="window.location= 'register.html'">log in</button>
             <button onclick="settings()" onclick="settingsShow()" id="settingsButt">settings</button>
             <div class="settings" id="settings">
                 <!-- <button onclick="settings()" style="width: fit-content; align-self: flex-end; margin: 0px;">settings</button> -->
@@ -50,11 +51,11 @@
                     <input type="checkbox" id="togg">
                     <span class="move"></span>
                 </label>
-                <p style="margin-bottom: 5px; font-size: 20px;" id="STLanguage">Language</p>
+                <!-- <p style="margin-bottom: 5px; font-size: 20px;" id="STLanguage">Language</p>
                 <select id="select">
                     <option value="en">English</option>
                     <option value="ru">Русский</option>
-                </select>
+                </select> -->
             </div>
         </div>
     </div>
@@ -67,7 +68,7 @@
         </div>
         <textarea class="markText" id="text" rows="10" placeholder="mark text" style="width: 93%;"></textarea>
         <div class="buttons">
-            <button id="save" onclick="save()" style="width: 150px;" class="saveLng">сохранить</button>
+            <button id="save" onclick="save()" style="width: 150px;" class="saveLng">save</button>
             <input type="file" id="fileInput" hidden>
             <!-- <button id="addPhoto" onclick="addPhoto()">add photo</button> -->
         </div>
@@ -98,8 +99,8 @@
         </div>
     </footer>
     <script src="js/changelog.js"></script>
-    <script src="js/lang.js"></script>
-    <script src="js/changelang.js"></script>
+    <!-- <script src="js/lang.js"></script>
+    <script src="js/changelang.js"></script> -->
     <script src="js/scripts.js"></script>
     <script src="js/changetheme.js"></script>
 </body>

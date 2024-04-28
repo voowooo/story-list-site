@@ -1,0 +1,78 @@
+*{
+    margin: 0px;
+}
+
+body{
+    padding: 3px;
+    display: flex;
+    flex-flow: column;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-family: 'San Francisco', Helvetica, Arial, san-serif;
+    transition: 0.5s;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.name {
+    font-size: 35px;
+    font-weight: bold;
+    font-family: 'San Francisco', Helvetica, Arial, san-serif;
+}
+
+.form {
+    border: 3px solid white;
+    border-radius: 20px;
+    display: flex;
+    width: 500px;
+    padding: 10px;
+    margin: 20px;
+    align-items: center;
+    flex-flow: column;
+}
+
+textarea {
+    resize: none;
+    width: 90%;
+    /* height: 50%; */
+    font-size: 35px;
+    font-family: 'San Francisco', Helvetica, Arial, san-serif;
+    border: 2px solid black;
+    color: white;
+    border-radius: 20px;
+    padding: 7px;
+    margin: 5px;
+    background-color: rgb(61, 61, 61);
+}
+
+textarea:focus{
+    border-color: rgb(173, 173, 173);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+    transition: 0.2s;
+}
+
+button {
+    background-color: rgba(0, 0, 0, 0);
+    transition: 0.2s;
+    border-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    margin: 10px;
+    height: fit-content;
+}
+
+button:hover {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-radius: 20px;
+}

@@ -1,13 +1,19 @@
-var isVisible = 0;
+var login = "";
 
-function settingsShow() {
-  const settings = document.getElementById("settings");
-  if (isVisible == 0){
-    settings.style.animation = "show 0.3s";
-    settings.style.display = "flex";
-    isVisible = 1;
-  } else {
-    settings.style.display = "none";
-    isVisible = 0;
-  }
+function next() {
+  login = document.getElementById("login").value
+
+  // если login есть в БД то вызывать log in
+  // если нет, то вызывать sign in
+}
+
+function signIn() {
+  document.getElementById("password").style.display = "";
+  document.getElementById("passwordTwo").style.display = "";
+  document.getElementById('next').innerHTML = "sign in";
+}
+
+function logIn() {
+  document.getElementById("password").style.display = "";
+  document.getElementById('next').innerHTML = "log in";
 }

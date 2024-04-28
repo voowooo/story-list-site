@@ -3,7 +3,7 @@ const langArr = {
         "ru": "SL · главная",
         "en": "SL · main",
     },
-    "name" : {
+    "vop" : {
         "ru": "Заметки",
         "en": "Notes"
     },
