@@ -13,38 +13,7 @@ var ShowChangeLog = true;
 
 
 
-function closeEdit(){
-  var editDiv = document.getElementsByClassName('editDiv')[0]; // Получаем первый элемент с классом 'editDiv'
-  editDiv.style.display = "none";
-}
 
-function editTheme() {
-  var newText = document.getElementById('edit').value;
-  
-  if(IsTheme == true){
-    editTextDiv.innerHTML = "edit theme";
-    var foundIndex = notes.findIndex(note => note.theme === initTheme); // Ищем индекс заметки с темой initTheme
-    if (foundIndex !== -1) { // Если заметка найдена
-      notes[foundIndex].theme = newText; // Обновляем текст заметки
-      saveList(); // Сохраняем изменения
-      loadList(); // Загружаем обновленный список заметок
-    } else {
-      console.log("Note with theme " + initTheme + " not found."); // Выводим сообщение об ошибке, если заметка не найдена
-    }
-  } else {
-    editTextDiv = "edit text";
-    var foundIndex = notes.findIndex(note => note.text === initTheme); // Ищем индекс заметки с темой initTheme
-    if (foundIndex !== -1) { // Если заметка найдена
-      notes[foundIndex].text = newText; // Обновляем текст заметки
-      saveList(); // Сохраняем изменения
-      loadList(); // Загружаем обновленный список заметок
-    } else {
-      console.log("Note with theme " + initTheme + " not found."); // Выводим сообщение об ошибке, если заметка не найдена
-    }
-  }
-  var editDiv = document.getElementsByClassName('editDiv')[0]; // Получаем первый элемент с классом 'editDiv'
-  editDiv.style.display = "none";
-}
 
 
 function save() {
@@ -68,10 +37,6 @@ function save() {
   document.getElementById("text").value = "";
 }
 
-
-function addPhoto() {
-  document.getElementById('fileInput').click();
-}
 
 
 
@@ -280,31 +245,6 @@ function devMode(){
 }
 
 
-// Выбираем кнопку
-const btn = document.getElementById("togg");
-// Выбираем настройки темы из localStorage
-const currentTheme = localStorage.getItem("theme");
-// Если текущая тема в localStorage равна "dark"…
-if (currentTheme == "dark") {
-  // …тогда мы используем класс .dark-theme
-  document.body.classList.add("dark-theme");
-}
-
-// Отслеживаем щелчок по кнопке
-btn.addEventListener("click", function() {
-  console.log("cheked")
-  // Переключаем класс .dark-theme при каждом щелчке
-  document.body.classList.toggle("dark-theme");
-  // Допустим, тема светлая
-  let theme = "light";
-  // Если <body> содержит класс .dark-theme…
-  if (document.body.classList.contains("dark-theme")) {
-    // …тогда делаем тему тёмной
-    theme = "dark";
-  }
-  // После чего сохраняем выбор в localStorage
-  localStorage.setItem("theme", theme);
-});
 
 
 
@@ -312,42 +252,8 @@ btn.addEventListener("click", function() {
 
 
 
-const select = document.getElementById("select");
-const allLang = ['en', 'ru'];
 
-select.addEventListener('change', changeURL);
 
-function changeURL() {
-  let lang = select.value;
-  location.href = window.location.pathname + '#' + lang;
-  location.reload();
-}
-
-function changeLang(){
-  let hash = window.location.hash;
-  hash = hash.substr(1);
-  console.log(hash);
-  if (!allLang.includes(hash)){
-    location.href = window.location.pathname + '#en';
-    location.reload();
-  }
-  select.value = hash;
-  document.querySelector('title').innerHTML = langArr['unit'][hash];
-  document.getElementById('vop').innerHTML = langArr['name'][hash];
-  document.getElementById('markTheme').placeholder = langArr['markTheme'][hash];
-  document.getElementById('text').placeholder = langArr['text'][hash];
-  document.getElementById('save').innerHTML = langArr['save'][hash];
-  document.getElementById('v').innerHTML = langArr['v'][hash];
-  document.getElementById('settingsButt').innerHTML = langArr['settingsButt'][hash];
-  document.getElementById('STTheme').innerHTML = langArr['STTheme'][hash];
-  document.getElementById('STLanguage').innerHTML = langArr['STLanguage'][hash];
-  document.getElementById('confText').innerHTML = langArr['confText'][hash];
-  document.getElementById('deleteConf').innerHTML = langArr['deleteConf'][hash];
-  document.getElementById('noConf').innerHTML = langArr['noConf'][hash];
-  document.getElementById('close').innerHTML = langArr['close'][hash];
-}
-
-changeLang();
 
 var toggleSettings = 0;
 
@@ -364,16 +270,24 @@ function settings() {
   }
 }
 
+var isVisible = 0;
+
 function settingsShow() {
   const settings = document.getElementById("settings");
-  settings.style.animation = "show 0.3s";
-  settings.style.display = "flex";
+  if (isVisible == 0){
+    settings.style.animation = "show 0.3s";
+    settings.style.display = "flex";
+    isVisible = 1;
+  } else {
+    settings.style.display = "none";
+    isVisible = 0;
+  }
 }
 
-function settingsOut() {
-  const settings = document.getElementById("settings");
-  settings.style.display = "none";
-}
+// function settingsOut() {
+//   const settings = document.getElementById("settings");
+//   settings.style.display = "none";
+// }
 
 const toggleSwitch = document.getElementById('togg');
 const savedToggleState = localStorage.getItem('toggleState');
@@ -451,10 +365,13 @@ function hideConfirm() {
   confirm.style.display = "none";
 }
 
-function closeChan(what) {
+function closeCH(what) {
   console.log("close is pressed");
   if (what == 'changeLog'){
     document.getElementsByClassName('changelogDiv')[0].style.display = "none";
+  } else if (what == 'edit') {
+    var editDiv = document.getElementsByClassName('editDiv')[0]; // Получаем первый элемент с классом 'editDiv'
+    editDiv.style.display = "none";
   }
 }
 
@@ -464,4 +381,32 @@ function TestR(){
   var textarea = document.getElementById("markTheme");
   cols = textarea.width; 
   console.log("cols= " + cols);
+}
+
+function editTheme() {
+  var newText = document.getElementById('edit').value;
+  
+  if(IsTheme == true){
+    editTextDiv.innerHTML = "edit theme";
+    var foundIndex = notes.findIndex(note => note.theme === initTheme); // Ищем индекс заметки с темой initTheme
+    if (foundIndex !== -1) { // Если заметка найдена
+      notes[foundIndex].theme = newText; // Обновляем текст заметки
+      saveList(); // Сохраняем изменения
+      loadList(); // Загружаем обновленный список заметок
+    } else {
+      console.log("Note with theme " + initTheme + " not found."); // Выводим сообщение об ошибке, если заметка не найдена
+    }
+  } else {
+    editTextDiv = "edit text";
+    var foundIndex = notes.findIndex(note => note.text === initTheme); // Ищем индекс заметки с темой initTheme
+    if (foundIndex !== -1) { // Если заметка найдена
+      notes[foundIndex].text = newText; // Обновляем текст заметки
+      saveList(); // Сохраняем изменения
+      loadList(); // Загружаем обновленный список заметок
+    } else {
+      console.log("Note with theme " + initTheme + " not found."); // Выводим сообщение об ошибке, если заметка не найдена
+    }
+  }
+  var editDiv = document.getElementsByClassName('editDiv')[0]; // Получаем первый элемент с классом 'editDiv'
+  editDiv.style.display = "none";
 }

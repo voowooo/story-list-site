@@ -20,14 +20,14 @@
         <p style="align-self: center; font-size: 25px;" class="changelogVersion">changes:</p>
         <div class="changelog">
         </div>
-        <button onclick="closeChan('changeLog')" id="close">close</button>
+        <button onclick="closeCH('changeLog')" id="close">close</button>
     </div>
     <div class="editDiv">
         <p id="editTextDiv">Edit</p>
         <textarea id="edit"></textarea>
         <div style="display: flex;">
             <button onclick="editTheme()">confirm</button>
-            <button onclick="closeEdit()">back</button>
+            <button onclick="closeCH('edit')">back</button>
         </div>
     </div>
     <div class="delConf" id="delConf">
@@ -42,8 +42,8 @@
         <p class="name" id="vop" ondblclick="devMode()">Mark For Walk</p>
         <button id = "clearButton" onclick="voowoo();" style="display: none;">clear(for dev)</button>
         <div style="position: relative; z-index: 0;">
-            <button onclick="settings()" onmouseover="settingsShow()" onmouseout="settingsOut()" id="settingsButt">settings</button>
-            <div class="settings" id="settings" onmouseover="settingsShow()" onmouseout="settingsOut()">
+            <button onclick="settings()" onclick="settingsShow()" id="settingsButt">settings</button>
+            <div class="settings" id="settings">
                 <!-- <button onclick="settings()" style="width: fit-content; align-self: flex-end; margin: 0px;">settings</button> -->
                 <p style="margin-bottom: 5px; font-size: 20px;" id="STTheme">Theme</p>
                 <label class="switch">
@@ -97,8 +97,10 @@
             </div>
         </div>
     </footer>
-    <script src="changelog.js"></script>
-    <script src="lang.js"></script>
-    <script src="scripts.js"></script>
+    <script src="js/changelog.js"></script>
+    <script src="js/lang.js"></script>
+    <script src="js/changelang.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/changetheme.js"></script>
 </body>
 </html>
